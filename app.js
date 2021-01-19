@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authMiddleware");
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 // middleware
 app.use(express.static("public"));
 app.use(express.json());
@@ -24,7 +24,7 @@ mongoose
     useCreateIndex: true,
   })
   .then((result) =>
-    app.listen(3000, () => console.log("listening to port 3000"))
+    app.listen(port, () => console.log("listening to port 3000"))
   )
   .catch((err) => console.log(err));
 
